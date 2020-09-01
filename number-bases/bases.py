@@ -26,15 +26,17 @@ def decode(digits, base):
     digits = digits[::-1]
     # reverse the string
     
-    all_characters = "01234567890" +string.ascii_lowercase
+    all_characters = "0123456789" +string.ascii_lowercase
     decimal_num = 0
     digits = digits.lower()
     # convert any alphabetic characters to lowercase
     
     for i in range (len(digits)):
         result = all_characters.index(digits[i]) * base ** i
-        print("result: ", digits[1])
+        print("result: ", digits[i])
+        # print result of corresponding indices of digits
         decimal_num += result
+        # add the result to decimal_num
     return decimal_num
 
 
@@ -52,6 +54,7 @@ def encode(number, base):
     # TODO: Encode number in hexadecimal (base 16)
     # ...
     # TODO: Encode number in any base (2 up to 36)
+    
     result = ""
     
     while number > 0:
@@ -60,9 +63,10 @@ def encode(number, base):
         number, remainder = divmod(number, base)
         
         if remainder >= 10:
-            # remainder + 87 because of asccii values
+            # remainder + 87 because of ascii values
             # matches number to corresponding letter in hex
             result += chr(remainder + 87)
+            # chr() returns a character from an integer
 
         else:
             result += str(remainder)
@@ -89,7 +93,9 @@ def convert(digits, base1, base2):
     # TODO: Convert digits from any base to any base (2 up to 36)
     # ...
     base10result = decode(digits, base1)
+    # the result of calling the encode function with args digits and base1
     finalresult = encode(base10result, base2)
+    # the result of calling the encode function on the base10result and converting into base2
     return finalresult
 
 def main():
