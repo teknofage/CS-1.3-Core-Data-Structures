@@ -1,4 +1,4 @@
-#!python
+
 
 import string
 # Hint: Use these string constants to encode/decode hexadecimal digits and more
@@ -23,6 +23,19 @@ def decode(digits, base):
     # ...
     # TODO: Decode digits from any base (2 up to 36)
     # ...
+    digits = digits[::-1]
+    # reverse the string
+    
+    all_characters = "01234567890" +string.ascii_lowercase
+    decimal_num = 0
+    digits = digits.lower()
+    # convert any alphabetic characters to lowercase
+    
+    for i in range (len(digits)):
+        result = all_characters.index(digits[i]) * base ** i
+        print("result: ", digits[1])
+        decimal_num += result
+    return decimal_num
 
 
 def encode(number, base):
@@ -39,7 +52,23 @@ def encode(number, base):
     # TODO: Encode number in hexadecimal (base 16)
     # ...
     # TODO: Encode number in any base (2 up to 36)
-    # ...
+    result = ""
+    
+    while number > 0:
+        # number = number // base
+        # remainder = number % base 
+        number, remainder = divmod(number, base)
+        
+        if remainder >= 10:
+            # remainder + 87 because of asccii values
+            # matches number to corresponding letter in hex
+            result += chr(remainder + 87)
+
+        else:
+            result += str(remainder)
+            
+    return result[::-1]
+    # returns result reversed because hexidecimal result is backwards
 
 
 def convert(digits, base1, base2):
@@ -59,7 +88,9 @@ def convert(digits, base1, base2):
     # ...
     # TODO: Convert digits from any base to any base (2 up to 36)
     # ...
-
+    base10result = decode(digits, base1)
+    finalresult = encode(base10result, base2)
+    return finalresult
 
 def main():
     """Read command-line arguments and convert given digits between bases."""
