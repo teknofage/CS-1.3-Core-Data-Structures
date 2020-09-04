@@ -37,7 +37,6 @@ def binary_search(array, item):
 
 def binary_search_iterative(array, item):
     # TODO: implement binary search iteratively here
-    pass
     # once implemented, change binary_search to call binary_search_iterative
     # to verify that your iterative implementation passes all tests
     if item == array[0]:
@@ -62,30 +61,19 @@ def binary_search_iterative(array, item):
 
 
 def binary_search_recursive(array, item, left=None, right=None):
-    # TODO: implement binary search recursively here
-    pass
-    # once implemented, change binary_search to call binary_search_recursive
-    # to verify that your recursive implementation passes all tests
-
     left = 0
-    right = len(array) - 1
-        
-        
-    while left <= right:
-                
-        middle_index = (left + right) // 2
+    right = len(array) -1
+    return recursive_helper(array, item, left, right)
 
-        if item == array[middle_index]: #base case
-            return middle_index
-        if left >= right: #2nd base case
-            return None
-        
-        elif item < array[middle_index]:
-            binary_search_recursive(array, item, left, right)
-            # move my pointers
-            left = middle_index -1
-            
-        elif item > array[middle_index]:
-            # move my pointers
-            left = middle_index + 1
-            binary_search_recursive(array, item, left, right)
+def recursive_helper(array, item, left, right):
+    middle_index = (left + right) // 2
+    if (left > right):
+        return None
+    if array[middle_index] == item:
+        return middle_index
+    elif item < array[middle_index]:
+        return recursive_helper(array, item, left, middle_index - 1)
+    else:
+        return recursive_helper(array, item, middle_index + 1, right)
+    
+    return binary_search_recursive(array, item, left, right)
