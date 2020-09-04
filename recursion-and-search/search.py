@@ -36,6 +36,27 @@ def binary_search_iterative(array, item):
     pass
     # once implemented, change binary_search to call binary_search_iterative
     # to verify that your iterative implementation passes all tests
+        
+        # find the middle
+        
+        left = 0
+        right = len(array) - 1
+        
+        
+        while left <= right:
+                    
+            middle_index = (left + right) // 2
+
+            if item == array[middle_index]:
+                return middle_index
+            elif item < array[middle_index]:
+                # move my pointers
+                left = middle_index -1
+                
+            elif item > array[middle_index]:
+                # move my pointers
+                left = middle_index + 1
+                
 
 
 def binary_search_recursive(array, item, left=None, right=None):
@@ -43,3 +64,25 @@ def binary_search_recursive(array, item, left=None, right=None):
     pass
     # once implemented, change binary_search to call binary_search_recursive
     # to verify that your recursive implementation passes all tests
+
+    left = 0
+    right = len(array) - 1
+        
+        
+    while left <= right:
+                
+        middle_index = (left + right) // 2
+
+        if item == array[middle_index]: #base case
+            return middle_index
+        if left >= right: #2nd base case
+            return None
+        
+        elif item < array[middle_index]:
+            binary_search_recursive(array, item, left, right)
+            # move my pointers
+            left = middle_index -1
+            
+        elif item > array[middle_index]:
+            # move my pointers
+            left = middle_index + 1
