@@ -50,10 +50,10 @@ def binary_search_iterative(array, item):
                 return middle_index
             elif item < array[middle_index]:
                 # move my pointers
-                right = middle_index -1
+                right = middle_index -1 #reassign right pointer
             elif item > array[middle_index]:
                 # move my pointers
-                right = middle_index + 1
+                right = middle_index + 1 #reassign right pointer
             else:
                 return None
         return None
@@ -72,8 +72,8 @@ def recursive_helper(array, item, left, right):
     if array[middle_index] == item:
         return middle_index
     elif item < array[middle_index]:
-        return recursive_helper(array, item, left, middle_index - 1)
+        return recursive_helper(array, item, left, middle_index - 1) #reassign middle_index
     else:
-        return recursive_helper(array, item, middle_index + 1, right)
+        return recursive_helper(array, item, middle_index + 1, right) #reassign middle_index
     
     return binary_search_recursive(array, item, left, right)
