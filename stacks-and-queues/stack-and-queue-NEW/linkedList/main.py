@@ -65,4 +65,3 @@ ll_queue.enqueue(5)
 ll_queue.dequeue()
 
 print(ll_queue.front())
-
