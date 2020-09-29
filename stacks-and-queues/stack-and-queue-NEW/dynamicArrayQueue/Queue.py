@@ -1,5 +1,5 @@
 class Queue:
-    
+
   def __init__(self):
     #CREATE AN EMPTY Queue
     #put the front at index 0
