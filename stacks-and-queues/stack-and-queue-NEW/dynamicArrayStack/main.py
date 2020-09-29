@@ -1,6 +1,6 @@
 from Stack import Stack
 
-'''#Implementing a stack with a dynamic array
+'''#Implementing a stack with a dynamic array'''
 
 #CREATE
 my_stack = []
@@ -17,7 +17,7 @@ my_stack.append("C")
 my_stack.pop(len(my_stack) - 1)
 
 #READ
-print(my_stack[len(my_stack) - 1])'''
+print(my_stack[len(my_stack) - 1])
 
 my_stack = Stack()
 
