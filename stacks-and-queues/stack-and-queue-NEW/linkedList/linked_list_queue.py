@@ -12,4 +12,4 @@ class LinkedListQueue:
     self.ll_queue.delete_from_head()
 
   def front(self):
-    return self.ll_queue.head.data
+    return self.ll_queue
