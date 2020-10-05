@@ -23,30 +23,30 @@ node3.right = node4
 root = node1
 target = 11
 '''if root.data == target:
-  print("Found it!")
-
-if root.data > target:
-  #look at left child
-  if root.left.data == target:
     print("Found it!")
 
+if root.data > target:
+    #look at left child
+    if root.left.data == target:
+        print("Found it!")
+
 if root.data < target:
-  #look at the right ChildProcessError
-  if root.right.data == target:
-    print("Found it")'''
+    #look at the right ChildProcessError
+    if root.right.data == target:
+        print("Found it")'''
 
 '''def search(target, node):
 
   #base case is we found it or nowhere else to look
-  if node is None or node.data == target:
-    return node
-  #recursive case
-  if node.data > target:
-    #look at the left child
-    return search(target, node.left)
-  if node.data < target:
-    #look a the right child
-    return search(target, node.right)
+    if node is None or node.data == target:
+        return node
+    #recursive case
+    if node.data > target:
+        #look at the left child
+        return search(target, node.left)
+    if node.data < target:
+        #look a the right child
+        return search(target, node.right)
 
 
 target = 8
@@ -65,14 +65,14 @@ def insert(node, new_node):
 
     if new_node.data < node.data:
 
-    if node.left is None: #if space on left
-        #make the new node the new child
-        node.left = new_node
-        return
-    else:#no space
-        #repeat for left child
-        #recurse
-        insert(node.left, new_node)
+        if node.left is None: #if space on left
+            #make the new node the new child
+            node.left = new_node
+            return
+        else:#no space
+            #repeat for left child
+            #recurse
+            insert(node.left, new_node)
 
     if new_node.data > node.data:
         if node.right is None:
