@@ -62,7 +62,7 @@ def insert(node, new_node):
             node.left = new_node
         return
     #otherwise keep looking
-        else:
+    else:
             insert(node.left, new_node)
 
 insert(root, Node(4))
@@ -80,6 +80,7 @@ def in_order_traversal(node):
         in_order_traversal(node.left)
         print(node.data)
         in_order_traversal(node.right)
+        print(node.data)
     else:
         return None
 
