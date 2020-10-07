@@ -48,22 +48,22 @@ def search(node, target):
 result = search(root, 12)
 
 def insert(node, new_node): 
-  if new_node.data > node.data:
+    if new_node.data > node.data:
     #put new child on right if space
-    if node.right is None:
-      node.right = new_node
-      return
+        if node.right is None:
+            node.right = new_node
+            return
     #otherwise keep looking
-    else:
-      insert(node.right, new_node)
-  if new_node.data < node.data:
+        else:
+            insert(node.right, new_node)
+    if new_node.data < node.data:
     #put new child on the left if space
-    if node.left is None:
-      node.left = new_node
-      return
+        if node.left is None:
+            node.left = new_node
+        return
     #otherwise keep looking
-    else:
-      insert(node.left, new_node)
+        else:
+            insert(node.left, new_node)
 
 insert(root, Node(4))
 
@@ -75,13 +75,13 @@ insert(root, Node(4))
 
 
 def in_order_traversal(node):
-  if node is not None:
+    if node is not None:
     #traverse
-    in_order_traversal(node.left)
-    print(node.data)
-    in_order_traversal(node.right)
-  else:
-    return None
+        in_order_traversal(node.left)
+        print(node.data)
+        in_order_traversal(node.right)
+    else:
+        return None
 
 in_order_traversal(root)
 #Extra credit write and explain pre order and post order
